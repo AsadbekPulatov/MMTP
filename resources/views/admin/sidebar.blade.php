@@ -53,6 +53,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('reports.index') }}"
+                       class="nav-link @if(request()->routeIs('reports.index')) active @endif ">
+                        <i class="fa fa-users nav-icon"></i>
+                        <p>Hisobotlar</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('services.index') }}"
                        class="nav-link @if(request()->routeIs('services.index')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
