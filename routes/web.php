@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TractorController;
 use App\Http\Controllers\FarmerController;
 use App\Http\Controllers\TypeController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\WorkerController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::resource('farmers', FarmerController::class);
+    Route::resource('services', ServiceController::class);
     Route::resource('tractors', TractorController::class);
     Route::resource('types', TypeController::class);
     Route::resource('workers', WorkerController::class);
