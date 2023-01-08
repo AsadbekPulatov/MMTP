@@ -15,7 +15,7 @@
                 <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="{{ route('dashboard') }}" class="d-block">Admin</a>
+                <a href="{{ route('dashboard') }}" class="d-block">{{ \Illuminate\Support\Facades\Auth::user()->name }}</a>
             </div>
         </div>
 
@@ -39,6 +39,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('farmers.index') }}"
+                       class="nav-link @if(request()->routeIs('farmers.index')) active @endif ">
+                        <i class="fa fa-users nav-icon"></i>
+                        <p>Fermerlar</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('workers.index') }}"
                        class="nav-link @if(request()->routeIs('workers.index')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
@@ -50,6 +57,13 @@
                        class="nav-link @if(request()->routeIs('tractors.index')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
                         <p>Tractor</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('types.index') }}"
+                       class="nav-link @if(request()->routeIs('types.index')) active @endif ">
+                        <i class="fa fa-users nav-icon"></i>
+                        <p>O'lchov birligi</p>
                     </a>
                 </li>
                 <li class="nav-item">

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TractorController;
+use App\Http\Controllers\FarmerController;
+use App\Http\Controllers\TypeController;
 use App\Http\Controllers\WorkerController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +27,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::resource('farmers', FarmerController::class);
     Route::resource('tractors', TractorController::class);
+    Route::resource('types', TypeController::class);
     Route::resource('workers', WorkerController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
