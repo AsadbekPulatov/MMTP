@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Fermer qoshish')
+@section('title', 'Фермер қўшиш')
 @section('content')
     <div class="row">
         <div class="col">
@@ -31,7 +31,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="modal-footer justify-content-between">
-                            <button type="submit" class="btn btn-primary">Saqlash</button>
+                            <button type="submit" class="btn btn-primary">Сақлаш</button>
                         </div>
                     </form>
                 </div>

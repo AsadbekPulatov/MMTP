@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Xizmatlar')
+@section('title', 'Нархлар')
 @section('content')
     <div class="row">
         <div class="col">
@@ -7,7 +7,7 @@
                 <div class="card-header d-flex justify-content-between">
                     <div>
                         <a href="{{ route('services.create') }}" class="btn btn-success">
-                            <i class="fa fa-plus"></i> Qo'shish
+                            <i class="fa fa-plus"></i> Қўшиш
                         </a>
                     </div>
                 </div>
@@ -16,12 +16,14 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Номи</th>
+                            <th>Иш турлари</th>
                             <th>Трактор</th>
-                            <th>Хизмат нархи</th>
-                            <th>Ишчи нархи</th>
+                            <th>Ўлчов бирлиги</th>
+                            <th>Миқдори</th>
+                            <th>Разряд баҳоси</th>
+                            <th>Хизмат баҳоси</th>
                             <th>Сана</th>
-                            <th>Amallar</th>
+                            <th>Амаллар</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -30,8 +32,10 @@
                                 <td>{{$loop->index +1}}</td>
                                 <td>{{$firm->name}}</td>
                                 <td>{{$firm->tractor->name}}</td>
+                                <td>{{$firm->type->type}}</td>
+                                <td>{{$firm->count}}</td>
+                                <td>{{ number_format($firm->price_worker, 2, ',', ' ') }}</td>
                                 <td>{{ number_format($firm->price, 0, ' ', ' ') }}</td>
-                                <td>{{ number_format($firm->price_worker, 0, ' ', ' ') }}</td>
                                 <td>{{ $firm->date }}</td>
                                 <td class="d-flex">
 

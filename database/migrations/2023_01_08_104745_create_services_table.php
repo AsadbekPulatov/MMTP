@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('name');
             $table->integer('tractor_id');
             $table->integer('type_id');
+            $table->integer('count');
             $table->integer('price');
-            $table->integer('price_worker');
+            $table->float('price_worker',11,2);
             $table->date('date');
             $table->timestamps();
         });

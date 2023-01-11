@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Xizmatni tahrirlash')
+@section('title', 'Нархни таҳрирлаш')
 @section('content')
     <div class="row">
         <div class="col">
@@ -10,12 +10,12 @@
                         @method('PUT')
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name">Номи:</label>
+                                <label for="name">Иш тури:</label>
                                 <input type="text" name="name" class="form-control" id="name" required
                                        value="{{ $service->name }}">
                             </div>
                             <div class="form-group">
-                                <label for="type_id">Бирлик:</label>
+                                <label for="type_id">Ўлчов бирлиги:</label>
                                 <select name="type_id" id="type_id" class="form-control form-select" required>
                                     @foreach($types as $type)
                                         <option value="{{$type->id}}"
@@ -28,13 +28,18 @@
                             <input type="hidden" value="{{ $service->tractor_id }}" name="tractor_id">
                             <div class="d-flex">
                                 <div class="form-group w-50">
-                                    <label for="price">Хизмат нархи({{ $service->tractor->name }}):</label>
+                                    <label for="price">Хизмат баҳоси({{ $service->tractor->name }}):</label>
                                     <input type="text" name="price" class="form-control" id="price" required value="{{ $service->price }}">
                                 </div>
                                 <div class="form-group w-50 ml-3">
-                                    <label for="price_worker">Ишчи нархи({{ $service->tractor->name }}):</label>
+                                    <label for="price_worker">Разряд баҳоси({{ $service->tractor->name }}):</label>
                                     <input type="text" name="price_worker" class="form-control" id="price_worker"
                                            required value="{{ $service->price_worker }}">
+                                </div>
+                                <div class="form-group w-50 ml-3">
+                                    <label for="count">Миқдори({{ $service->tractor->name }}):</label>
+                                    <input type="text" name="count" class="form-control" id="count"
+                                           required value="{{ $service->count }}">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -45,7 +50,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="modal-footer justify-content-between">
-                            <button type="submit" class="btn btn-primary">Saqlash</button>
+                            <button type="submit" class="btn btn-primary">Сақлаш</button>
                         </div>
                     </form>
                 </div>

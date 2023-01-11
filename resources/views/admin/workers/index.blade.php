@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Ishchilar')
+@section('title', 'Ишчилар')
 @section('content')
     <div class="row">
 
@@ -12,8 +12,8 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Ism Familiya</th>
-                            <th>Amallar</th>
+                            <th>Ф.И.Ш</th>
+                            <th>Амаллар</th>
                         </tr>
                         </thead>
                         <tbody>

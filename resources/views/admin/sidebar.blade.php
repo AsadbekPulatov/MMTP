@@ -42,42 +42,42 @@
                     <a href="{{ route('farmers.index') }}"
                        class="nav-link @if(request()->routeIs('farmers.index')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
-                        <p>Fermerlar</p>
+                        <p>Фермерлар</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('workers.index') }}"
                        class="nav-link @if(request()->routeIs('workers.index')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
-                        <p>Ishchilar</p>
+                        <p>Ишчилар</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('reports.index') }}"
                        class="nav-link @if(request()->routeIs('reports.index')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
-                        <p>Hisobotlar</p>
+                        <p>Бажарилган ишлар</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('services.index') }}"
                        class="nav-link @if(request()->routeIs('services.index')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
-                        <p>Xizmatlar</p>
+                        <p>Нархлар</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('tractors.index') }}"
                        class="nav-link @if(request()->routeIs('tractors.index')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
-                        <p>Tractor</p>
+                        <p>Тракторлар</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('types.index') }}"
                        class="nav-link @if(request()->routeIs('types.index')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
-                        <p>O'lchov birligi</p>
+                        <p>Улчов бирликлари</p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -87,7 +87,7 @@
                            class="nav-link" onclick="event.preventDefault();
                            this.closest('form').submit();">
                             <i class="fa fa-sign-out-alt nav-icon"></i>
-                            <p>Log Out</p>
+                            <p>Чикиш</p>
                         </a>
                     </form>
                 </li>

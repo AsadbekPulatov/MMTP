@@ -3,7 +3,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Birlikni tahrirlash</h4>
+                <h4 class="modal-title">Ўлчов бирлигини таҳрирлаш</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -15,13 +15,13 @@
                     <input type="hidden" name="id" id="edit_id">
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="edit_type">Birlik:</label>
+                            <label for="edit_type">Ўлчов бирлиги:</label>
                             <input type="text" name="type" class="form-control" id="edit_type" required>
                         </div>
                     </div>
                     <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Bekor qilish</button>
-                        <button type="submit" class="btn btn-primary">Saqlash</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Бекор қилиш</button>
+                        <button type="submit" class="btn btn-primary">Сақлаш</button>
                     </div>
                 </form>
             </div>

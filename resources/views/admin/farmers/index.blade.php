@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Fermerlar')
+@section('title', 'Фермерлар')
 @section('content')
     <div class="row">
         <div class="col">
@@ -7,7 +7,7 @@
                 <div class="card-header d-flex justify-content-between">
                     <div>
                         <a href="{{ route('farmers.create') }}" class="btn btn-success">
-                            <i class="fa fa-plus"></i> Qo'shish
+                            <i class="fa fa-plus"></i> Қўшиш
                         </a>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                             <th>хр</th>
                             <th>Банк коди</th>
                             <th>Рахбари</th>
-                            <th>Amallar</th>
+                            <th>Амаллар</th>
                         </tr>
                         </thead>
                         <tbody>

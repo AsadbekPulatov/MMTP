@@ -16,7 +16,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::all();
+        $services = Service::orderBy('date', 'desc')->get();
         return view('admin.services.index', compact('services'));
     }
 
@@ -43,6 +43,7 @@ class ServiceController extends Controller
         $tractor_id = $request->input('tractor_id');
         $price = $request->input('price');
         $price_worker = $request->input('price_worker');
+        $count = $request->input('count');
         foreach ($tractor_id as $key => $value) {
             $service = new Service();
             $service->name = $request->input('name');
@@ -50,7 +51,8 @@ class ServiceController extends Controller
             $service->date = $request->input('date');
             $service->tractor_id = $value;
             $service->price = $price[$key];
-            $service->price_worker = $price_worker[$key];
+            $service->price_worker = floatval($price_worker[$key], 2);
+            $service->count = $count[$key];
             $service->save();
         }
         return redirect()->route('services.index')->with('success', 'Service created successfully.');

@@ -15,6 +15,7 @@ class Service extends Model
         'tractor_id',
         'price',
         'price_worker',
+        'count',
     ];
     public function type()
     {

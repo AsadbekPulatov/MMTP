@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Fermerni tahrirlash')
+@section('title', 'Фермерни таҳрирлаш')
 @section('content')
     <div class="row">
         <div class="col">
