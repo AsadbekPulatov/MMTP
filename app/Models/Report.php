@@ -14,7 +14,8 @@ class Report extends Model
         'farmer_id',
         'service_id',
         'weight',
-        'date',
+        'start_date',
+        'end_date',
     ];
     public function worker()
     {

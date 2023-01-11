@@ -29,6 +29,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/report/workers/', [ReportController::class, 'worker'])->name('reports.workers');
     Route::resource('reports', ReportController::class);
     Route::resource('farmers', FarmerController::class);
     Route::resource('services', ServiceController::class);

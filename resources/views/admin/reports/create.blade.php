@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Hisobot qoshish')
+@section('title', 'Бажарилган ишларни киритиш')
 @section('content')
     <div class="row">
         <div class="col">
@@ -8,9 +8,15 @@
                     <form method="post" action="{{route('reports.store')}}" id="form">
                         @csrf
                         <div class="card-body">
-                            <div class="form-group">
-                                <label for="date">Сана:</label>
-                                <input type="date" name="date" class="form-control" id="date" required onchange="sana()">
+                            <div class="d-flex">
+                                <div class="form-group w-100">
+                                    <label for="start_date">Санадан:</label>
+                                    <input type="date" name="start_date" class="form-control" id="start_date" required onchange="sana()">
+                                </div>
+                                <div class="form-group w-100 ml-3">
+                                    <label for="date">Санагача:</label>
+                                    <input type="date" name="end_date" class="form-control" id="date" required onchange="sana()">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="worker_id">Тракторчи:</label>
@@ -48,21 +54,25 @@
                                 <input type="text" name="type_id" class="form-control" id="type_id" required disabled>
                             </div>
                             <div class="form-group">
-                                <label for="weight">Микдори:</label>
-                                <input type="number" name="weight" class="form-control" id="weight" required>
+                                <label for="count">Иш меъёри:</label>
+                                <input type="number" name="count" class="form-control" id="count" required disabled>
                             </div>
                             <div class="form-group">
-                                <label for="price">Хизмат нархи:</label>
+                                <label for="weight">Микдори:</label>
+                                <input type="text" name="weight" class="form-control" id="weight" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Хизмат баҳоси:</label>
                                 <input type="number" name="price" class="form-control" id="price" required disabled>
                             </div>
                             <div class="form-group">
-                                <label for="price_worker">Тракторчи нархи:</label>
+                                <label for="price_worker">Разряд баҳоси:</label>
                                 <input type="number" name="price_worker" class="form-control" id="price_worker" required disabled>
                             </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="modal-footer justify-content-between">
-                            <button type="submit" class="btn btn-primary">Saqlash</button>
+                            <button type="submit" class="btn btn-primary">Сақлаш</button>
                         </div>
                     </form>
                 </div>
@@ -95,6 +105,7 @@
             document.getElementById('type_id').value = "";
             document.getElementById('price').value = "";
             document.getElementById('price_worker').value = "";
+            document.getElementById('count').value = "";
             for (var i = 0; i < newServices.length; i++) {
                 var option = document.createElement('option');
                 option.value = newServices[i].id;
@@ -122,6 +133,7 @@
             document.getElementById('type_id').value = "";
             document.getElementById('price').value = "";
             document.getElementById('price_worker').value = "";
+            document.getElementById('count').value = "";
             for (var i = 0; i < newServices.length; i++) {
                 if (newServices[i].tractor_id == tractor_id) {
                     var option = document.createElement('option');
@@ -136,11 +148,13 @@
             var type_id = document.getElementById('type_id');
             var price = document.getElementById('price');
             var price_worker = document.getElementById('price_worker');
+            var count = document.getElementById('count');
             for (var i = 0; i < newServices.length; i++) {
                 if (newServices[i].id == service_id) {
                     type_id.value = types[newServices[i].type_id];
                     price.value = newServices[i].price;
                     price_worker.value = newServices[i].price_worker;
+                    count.value = newServices[i].count;
                 }
             }
         }

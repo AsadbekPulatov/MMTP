@@ -19,8 +19,9 @@ return new class extends Migration
             $table->integer('tractor_id');
             $table->integer('farmer_id');
             $table->integer('service_id');
-            $table->integer('weight');
-            $table->date('date');
+            $table->float('weight',11,2);
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
         });
     }
