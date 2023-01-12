@@ -61,6 +61,15 @@
                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-create">
                             <i class="fa fa-filter"></i> Филтр
                         </button>
+                        <div>
+                            <a href="{{ route('download.workers',
+                                        [
+                                            'from_date' => $from_date,
+                                            'to_date' => $to_date,
+                                            'worker_id' => $worker_id,
+                                        ]
+                                        ) }}" class="btn btn-info ml-3"><i class="fa fa-download"></i>Скачать</a>
+                        </div>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-hover text-center">

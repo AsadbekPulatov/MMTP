@@ -62,7 +62,7 @@ class ReportController extends Controller
         $sum['staj'] = array_sum(array_column($arr, 'sum_staj'));
         $sum['price'] = array_sum(array_column($arr, 'sum_price'));
         $workers = $arr;
-        return view('admin.reports.worker', compact('workers', 'sum'));
+        return view('admin.reports.worker', compact('workers', 'sum','from_date','to_date','worker_id'));
     }
 
     public function index(Request $request)

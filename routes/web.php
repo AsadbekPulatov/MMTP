@@ -29,6 +29,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/download/workers/',[\App\Http\Controllers\DownloadController::class, 'workers'])->name('download.workers');
     Route::get('/report/workers/', [ReportController::class, 'worker'])->name('reports.workers');
     Route::resource('reports', ReportController::class);
     Route::resource('farmers', FarmerController::class);
