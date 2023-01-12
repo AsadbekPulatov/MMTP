@@ -1,18 +1,11 @@
 @extends('admin.master')
-@section('title', 'Бажарилган ишлар')
+{{--@section('title', 'Бажарилган ишлар')--}}
 @section('content')
     <div class="row">
         <div class="col">
-            <div class="card">
-                <div class="card-header d-flex">
-                    <div>
-                        <a href="{{ route('reports.create') }}" class="btn btn-success">
-                            <i class="fa fa-plus"></i> Қўшиш
-                        </a>
-                    </div>
-                    <button type="button" class="ml-3 btn btn-info" data-toggle="modal" data-target="#modal-create">
-                        <i class="fa fa-filter"></i> Филтр
-                    </button>
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title" style="font-size: x-large">Бажарилган ишлар</h3>
                 </div>
                 <div class="modal fade" id="modal-create">
                     <div class="modal-dialog">
@@ -71,109 +64,123 @@
                     <!-- /.modal-dialog -->
                 </div>
                 <div class="card-body">
+                    <div class="d-flex mb-3">
+                        <div>
+                            <a href="{{ route('reports.create') }}" class="btn btn-success">
+                                <i class="fa fa-plus"></i> Қўшиш
+                            </a>
+                        </div>
+                        <button type="button" class="ml-3 btn btn-info" data-toggle="modal" data-target="#modal-create">
+                            <i class="fa fa-filter"></i> Филтр
+                        </button>
+                    </div>
                     @if($page == 'farmer')
-                        <table class="table table-hover text-center">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Фермер</th>
-                                <th>Хизмат</th>
-                                <th>Микдори</th>
-                                <th>Нархи</th>
-                                <th>Жами</th>
-                                <th>Сана</th>
-                                <th>Амаллар</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($reports as $firm)
+                        <div class="table-responsive">
+                            <table class="table table-hover text-center">
+                                <thead>
                                 <tr>
-                                    <td>{{$loop->index +1}}</td>
-                                    <td>{{$firm->farmer->name}}</td>
-                                    <td>{{$firm->service->name}}</td>
-                                    <td>{{$firm->weight}}</td>
-                                    <td>{{number_format($firm->service->price, 0, ' ', ' ')}}</td>
-                                    <td>{{number_format($firm->service->price * $firm->weight, 2, ',', ' ')}}</td>
-                                    <td>
-                                        @if($firm->start_date == $firm->end_date)
-                                            {{date('d.m.Y', strtotime($firm->start_date))}}
-                                        @else
-                                            {{date('d.m.Y', strtotime($firm->start_date))}}
-                                            - {{date('d.m.Y', strtotime($firm->end_date))}}
-                                        @endif
-                                        {{--                                    {{$firm->date}}--}}
-                                    </td>
-                                    <td class="d-flex">
-
-                                        <a href="{{ route('reports.edit', $firm->id) }}" class="btn btn-warning">
-                                            <i class="fa fa-pen"></i>
-                                        </a>
-
-
-                                        <form action="{{route('reports.destroy', $firm->id)}}" method="post">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="btn btn-danger show_confirm"><i
-                                                    class="fa fa-trash"></i></button>
-                                        </form>
-
-                                    </td>
+                                    <th>#</th>
+                                    <th>Фермер</th>
+                                    <th>Хизмат</th>
+                                    <th>Микдори</th>
+                                    <th>Нархи</th>
+                                    <th>Жами</th>
+                                    <th>Сана</th>
+                                    <th>Амаллар</th>
                                 </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                @foreach($reports as $firm)
+                                    <tr>
+                                        <td>{{$loop->index +1}}</td>
+                                        <td>{{$firm->farmer->name}}</td>
+                                        <td>{{$firm->service->name}}</td>
+                                        <td>{{$firm->weight}}</td>
+                                        <td>{{number_format($firm->service->price, 0, ' ', ' ')}}</td>
+                                        <td>{{number_format($firm->service->price * $firm->weight, 2, ',', ' ')}}</td>
+                                        <td>
+                                            @if($firm->start_date == $firm->end_date)
+                                                {{date('d.m.Y', strtotime($firm->start_date))}}
+                                            @else
+                                                {{date('d.m.Y', strtotime($firm->start_date))}}
+                                                - {{date('d.m.Y', strtotime($firm->end_date))}}
+                                            @endif
+                                            {{--                                    {{$firm->date}}--}}
+                                        </td>
+                                        <td class="d-flex">
+
+                                            <a href="{{ route('reports.edit', $firm->id) }}" class="btn btn-warning">
+                                                <i class="fa fa-pen"></i>
+                                            </a>
+
+
+                                            <form action="{{route('reports.destroy', $firm->id)}}" method="post">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger show_confirm"><i
+                                                        class="fa fa-trash"></i></button>
+                                            </form>
+
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     @elseif($page == 'worker')
-                        <table class="table table-hover text-center">
-                            <thead>
-                            <tr>
-                                <th>Т/р</th>
-                                <th>Санаси</th>
-                                <th>Тракторчининг Ф.И.Ш</th>
-                                <th>Ф\х номи</th>
-                                <th>Иш тури</th>
-                                <th>Тр маркаси</th>
-                                <th>у\б</th>
-                                <th>Микдори</th>
-                                <th>Нархи</th>
-                                <th>Жами</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($reports as $firm)
+                        <div class="table-responsive">
+                            <table class="table table-hover text-center">
+                                <thead>
                                 <tr>
-                                    <td>{{$loop->index +1}}</td>
-                                    <td>
-                                        @if($firm->start_date == $firm->end_date)
-                                            {{date('d.m.Y', strtotime($firm->start_date))}}
-                                        @else
-                                            {{date('d.m.Y', strtotime($firm->start_date))}}
-                                            - {{date('d.m.Y', strtotime($firm->end_date))}}
-                                        @endif
-                                    </td>
-                                    <td>{{$firm->worker->name}}</td>
-                                    <td>{{$firm->farmer->name}}</td>
-                                    <td>{{$firm->service->name}}</td>
-                                    <td>{{$firm->tractor->name}}</td>
-                                    <td>{{$firm->service->type->type}}</td>
-                                    <td>{{$firm->weight}}</td>
-                                    <td>{{number_format($firm->service->price, 0, ' ', ' ')}}</td>
-                                    <td>{{number_format($firm->service->price * $firm->weight, 2, ',', ' ')}}</td>
+                                    <th>Т/р</th>
+                                    <th>Санаси</th>
+                                    <th>Тракторчининг Ф.И.Ш</th>
+                                    <th>Ф\х номи</th>
+                                    <th>Иш тури</th>
+                                    <th>Тр маркаси</th>
+                                    <th>у\б</th>
+                                    <th>Микдори</th>
+                                    <th>Нархи</th>
+                                    <th>Жами</th>
                                 </tr>
-                            @endforeach
-                            <tr class="text-bold">
-                                <td>х</td>
-                                <td>х</td>
-                                <td>ЖАМИ</td>
-                                <td>х</td>
-                                <td>х</td>
-                                <td>х</td>
-                                <td>х</td>
-                                <td>{{$sum['staj']}}</td>
-                                <td>х</td>
-                                <td>{{number_format($sum['price'], 2, ',', ' ')}}</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                @foreach($reports as $firm)
+                                    <tr>
+                                        <td>{{$loop->index +1}}</td>
+                                        <td>
+                                            @if($firm->start_date == $firm->end_date)
+                                                {{date('d.m.Y', strtotime($firm->start_date))}}
+                                            @else
+                                                {{date('d.m.Y', strtotime($firm->start_date))}}
+                                                - {{date('d.m.Y', strtotime($firm->end_date))}}
+                                            @endif
+                                        </td>
+                                        <td>{{$firm->worker->name}}</td>
+                                        <td>{{$firm->farmer->name}}</td>
+                                        <td>{{$firm->service->name}}</td>
+                                        <td>{{$firm->tractor->name}}</td>
+                                        <td>{{$firm->service->type->type}}</td>
+                                        <td>{{$firm->weight}}</td>
+                                        <td>{{number_format($firm->service->price, 0, ' ', ' ')}}</td>
+                                        <td>{{number_format($firm->service->price * $firm->weight, 2, ',', ' ')}}</td>
+                                    </tr>
+                                @endforeach
+                                <tr class="text-bold">
+                                    <td>х</td>
+                                    <td>х</td>
+                                    <td>ЖАМИ</td>
+                                    <td>х</td>
+                                    <td>х</td>
+                                    <td>х</td>
+                                    <td>х</td>
+                                    <td>{{$sum['staj']}}</td>
+                                    <td>х</td>
+                                    <td>{{number_format($sum['price'], 2, ',', ' ')}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     @endif
                 </div>
             </div>

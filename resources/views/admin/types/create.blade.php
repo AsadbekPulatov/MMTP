@@ -1,4 +1,4 @@
-<div class="card-header d-flex justify-content-between">
+<div class="d-flex mb-3">
     <div>
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-create">
             <i class="fa fa-plus"></i> Қўшиш

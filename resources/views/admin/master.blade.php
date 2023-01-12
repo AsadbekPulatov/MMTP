@@ -24,7 +24,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.esm.min.js" integrity="sha512-wp1TmWHEmHgERMuWw8Q0tCwFbZab0o6MjMS/HceqShRObCHzIfTrZfjpMm1bTuqIVrQXd9SRhYt0V9hObySU/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ 'plugins/datatables-bs4/css/dataTables.bootstrap4.min.css' }}">
+    <link rel="stylesheet" href="{{ 'plugins/datatables-responsive/css/responsive.bootstrap4.min.css' }}">
+    <link rel="stylesheet" href="{{ 'plugins/datatables-buttons/css/buttons.bootstrap4.min.css' }}">
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -80,38 +83,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('custom/sweetalert.min.js')}}"></script>
 
 <!-- ChartJS -->
-{{--<script src="../../plugins/chart.js/Chart.min.js"></script>--}}
 <script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 
-<script>
-    function datevalidate(){
-        var from_date = document.getElementById('from_date');
-        var to_date = document.getElementById('to_date');
-        var form = document.getElementById('date_form_validate');
-        var count = 0;
-        if(from_date.value == "" || to_date.value == ""){
-            from_date.style.border = "1px solid red";
-            to_date.style.border = "1px solid red";
-            var msg = "Sanalar kiritilmadi";
-            toastr.error(msg);
-            count++;
-        }
-        else  if(from_date.value > to_date.value){
-            from_date.style.border = "1px solid red";
-            to_date.style.border = "1px solid red";
-            var msg = "Sana oralig'i noto'g'ri kiritildi";
-            toastr.error(msg);
-            count++;
-        } else{
-            from_date.style.border = "1px solid green";
-            to_date.style.border = "1px solid green";
-        }
-        if(count == 0){
-            form.submit();
-        }
-    }
-</script>
+
+
+<!-- DataTables  & Plugins -->
+<script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/jszip/jszip.min.js') }}"></script>
+<script src="{{ asset('plugins/pdfmake/pdfmake.min.js') }}"></script>
+<script src="{{ asset('plugins/pdfmake/vfs_fonts.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+
 
 @yield('custom-scripts')
 <script>

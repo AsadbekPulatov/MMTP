@@ -1,10 +1,13 @@
 @extends('admin.master')
-@section('title', 'Бажарилган ишларни таҳрирлаш')
+{{--@section('title', 'Бажарилган ишларни таҳрирлаш')--}}
 @section('content')
     <div class="row">
         <div class="col">
-            <div class="card">
-                <div class="card-body">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title" style="font-size: x-large">Бажарилган ишларни таҳрирлаш</h3>
+                </div>
+{{--                <div class="card-body">--}}
                     <form method="post" action="{{route('reports.update', $report->id)}}" id="form">
                         @csrf
                         @method('PUT')
@@ -74,11 +77,11 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
-                        <div class="modal-footer justify-content-between">
+                        <div class="card-footer justify-content-between">
                             <button type="submit" class="btn btn-primary">Сақлаш</button>
                         </div>
                     </form>
-                </div>
+{{--                </div>--}}
             </div>
 
         </div>

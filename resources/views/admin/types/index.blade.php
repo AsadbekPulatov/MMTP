@@ -1,46 +1,51 @@
 @extends('admin.master')
-@section('title', 'Улчов бирликлари')
+{{--@section('title', 'Улчов бирликлари')--}}
 @section('content')
     <div class="row">
 
         <!-- /.col-md-6 -->
         <div class="col">
-            <div class="card">
-                @include("admin.types.create")
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title" style="font-size: x-large">Улчов бирликлари</h3>
+                </div>
                 <div class="card-body">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Ўлчов бирлиги</th>
-                            <th>Амаллар</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($types as $firm)
+                    @include("admin.types.create")
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
                             <tr>
-                                <td>{{$loop->index +1}}</td>
-                                <td>{{$firm->type}}</td>
-                                <td class="d-flex">
-
-                                    <button type="button" onclick="edit({{$firm->id}})" class="btn btn-warning"
-                                            data-toggle="modal" data-target="#modal-edit">
-                                        <i class="fa fa-pen"></i>
-                                    </button>
-
-
-                                    <form action="{{route('types.destroy', $firm->id)}}" method="post">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger show_confirm"><i
-                                                class="fa fa-trash"></i></button>
-                                    </form>
-
-                                </td>
+                                <th>#</th>
+                                <th>Ўлчов бирлиги</th>
+                                <th>Амаллар</th>
                             </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            @foreach($types as $firm)
+                                <tr>
+                                    <td>{{$loop->index +1}}</td>
+                                    <td>{{$firm->type}}</td>
+                                    <td class="d-flex">
+
+                                        <button type="button" onclick="edit({{$firm->id}})" class="btn btn-warning"
+                                                data-toggle="modal" data-target="#modal-edit">
+                                            <i class="fa fa-pen"></i>
+                                        </button>
+
+
+                                        <form action="{{route('types.destroy', $firm->id)}}" method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger show_confirm"><i
+                                                    class="fa fa-trash"></i></button>
+                                        </form>
+
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 @include("admin.types.edit")
             </div>
