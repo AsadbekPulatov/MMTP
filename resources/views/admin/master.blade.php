@@ -120,7 +120,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         event.preventDefault();
         swal({
             title: `Haqiqatan ham bu yozuvni oʻchirib tashlamoqchimisiz?`,
-            text: "Agar siz buni o'chirib tashlasangiz, u abadiy yo'qoladi.",
+            text: "Agar siz buni o'chirib tashlasangiz, bu yozuvni qayta tiklash imkoni yo'q!",
             icon: "warning",
             buttons: true,
             dangerMode: true,

@@ -2,7 +2,7 @@
 
 return [
 
-
+    //  buttons
     'save' => "Сақлаш",
     'add' => "Қўшиш",
     'edit' => "Таҳрирлаш",
@@ -10,6 +10,7 @@ return [
     'filter' => "Филтр",
     'download' => "Юклаб олиш",
 
+    //   headers and menus
     'farmers' => "Фермерлар",
     'farmer' => "Фермер",
     'office' => "Корхона",

@@ -20,7 +20,6 @@
         }
 
         table {
-            margin-top: 250px;
             border-collapse: collapse;
             width: 100%;
         }
@@ -34,14 +33,16 @@
         .header > th {
             border: 3px double black;
         }
-        .office{
+
+        .office {
             width: 500px;
             font-weight: bold;
             text-align: center;
             position: absolute;
             left: 1%;
         }
-        .farmer{
+
+        .farmer {
             width: 500px;
             font-weight: bold;
             text-align: center;
@@ -70,10 +71,10 @@
         <p>МФО: {{$reports[0]->farmer->bank_code}} ИНН: {{$reports[0]->farmer->inn}}</p>
     </div>
     <div>
-        <table border="1">
+        <table border="1" style="margin-top: 250px;">
             <thead>
             <tr class="header">
-                {{--                <th>#</th>--}}
+                <th rowspan="2">#</th>
                 {{--                <th>Фермер</th>--}}
                 <th rowspan="2">Хизмат тури</th>
                 <th rowspan="2" style="width: 50px;">у\б</th>
@@ -91,7 +92,7 @@
             <tbody>
             @foreach($reports as $firm)
                 <tr>
-                    {{--                    <td>{{$loop->index +1}}</td>--}}
+                    <td>{{$loop->index +1}}</td>
                     {{--                    <td>{{$firm->farmer->name}}</td>--}}
                     <td>{{$firm->service->name}}</td>
                     <td>{{$firm->service->type->type }}</td>
@@ -106,6 +107,7 @@
                 </tr>
             @endforeach
             <tr style="font-weight: bold; background-color: #d5d0d0">
+                <td></td>
                 <td>ЖАМИ</td>
                 <td>х</td>
                 <td>х</td>

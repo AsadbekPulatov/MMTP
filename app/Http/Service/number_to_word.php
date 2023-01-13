@@ -9,6 +9,9 @@ class number_to_word{
         $length = strlen($number);
         $new_word = '';
         $slice = $length % 3;
+        if ($slice == 0) {
+            $slice = 3;
+        }
         for ($i = $slice; $i < 3; $i++)
             $number = '0' . $number;
         $length = strlen($number);

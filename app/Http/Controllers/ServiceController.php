@@ -51,7 +51,7 @@ class ServiceController extends Controller
             $service->date = $request->input('date');
             $service->tractor_id = $value;
             $service->price = $price[$key];
-            $service->price_worker = floatval($price_worker[$key], 2);
+            $service->price_worker = round($price_worker[$key], 2);
             $service->count = $count[$key];
             $service->save();
         }
