@@ -1,11 +1,10 @@
 @extends('admin.master')
-{{--@section('title', 'Фермер қўшиш')--}}
 @section('content')
     <div class="row">
         <div class="col">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title" style="font-size: x-large">Фермер қўшиш</h3>
+                    <h3 class="card-title" style="font-size: x-large">{{ __("messages.farmer") }} {{ mb_strtolower(__("messages.add"), "UTF-8") }}</h3>
                 </div>
                 <form method="post" action="{{route('farmers.store')}}" id="form">
                     @csrf
@@ -33,7 +32,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer modal-footer justify-content-between">
-                        <button type="submit" class="btn btn-primary">Сақлаш</button>
+                        <button type="submit" class="btn btn-primary">{{__("messages.save")}}</button>
                     </div>
                 </form>
             </div>

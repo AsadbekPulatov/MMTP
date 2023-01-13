@@ -53,7 +53,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer justify-content-between">
-                            <button type="submit" class="btn btn-primary">Сақлаш</button>
+                            <button type="submit" class="btn btn-primary">{{ __("messages.save") }}</button>
                         </div>
                     </form>
 {{--                </div>--}}

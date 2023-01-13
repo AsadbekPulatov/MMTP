@@ -10,13 +10,13 @@
         <div class="col">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title" style="font-size: x-large">Иш ҳақи</h3>
+                    <h3 class="card-title" style="font-size: x-large">{{ __("messages.report_worker") }}</h3>
                 </div>
                 <div class="modal fade" id="modal-create">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Филтр</h4>
+                                <h4 class="modal-title">{{ __("messages.filter") }}</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -59,7 +59,7 @@
                 <div class="card-body">
                     <div class="d-flex mb-3">
                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-create">
-                            <i class="fa fa-filter"></i> Филтр
+                            <i class="fa fa-filter"></i> {{ __("messages.filter") }}
                         </button>
                         <div>
                             <a href="{{ route('download.workers',
@@ -68,7 +68,7 @@
                                             'to_date' => $to_date,
                                             'worker_id' => $worker_id,
                                         ]
-                                        ) }}" class="btn btn-info ml-3"><i class="fa fa-download"></i>Скачать</a>
+                                        ) }}" class="btn btn-info ml-3"><i class="fa fa-download"></i> {{ __("messages.download") }}</a>
                         </div>
                     </div>
                     <div class="table-responsive">

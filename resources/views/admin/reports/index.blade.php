@@ -5,13 +5,13 @@
         <div class="col">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title" style="font-size: x-large">Бажарилган ишлар</h3>
+                    <h3 class="card-title" style="font-size: x-large">{{ __("messages.reports") }}</h3>
                 </div>
                 <div class="modal fade" id="modal-create">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Филтр</h4>
+                                <h4 class="modal-title">{{ __("messages.filter") }}</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -67,12 +67,22 @@
                     <div class="d-flex mb-3">
                         <div>
                             <a href="{{ route('reports.create') }}" class="btn btn-success">
-                                <i class="fa fa-plus"></i> Қўшиш
+                                <i class="fa fa-plus"></i> {{ __("messages.add") }}
                             </a>
                         </div>
                         <button type="button" class="ml-3 btn btn-info" data-toggle="modal" data-target="#modal-create">
-                            <i class="fa fa-filter"></i> Филтр
+                            <i class="fa fa-filter"></i> {{ __("messages.filter") }}
                         </button>
+                        <div>
+                            <a href="{{ route('download.farmers',
+                                        [
+                                            'from_date' => $from_date,
+                                            'to_date' => $to_date,
+                                            'worker_id' => $worker_id,
+                                            'farmer_id' => $farmer_id,
+                                        ]
+                                        ) }}" class="btn btn-info ml-3"><i class="fa fa-download"></i> {{ __("messages.download") }}</a>
+                        </div>
                     </div>
                     @if($page == 'farmer')
                         <div class="table-responsive">

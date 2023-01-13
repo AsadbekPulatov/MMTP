@@ -39,52 +39,59 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('office.edit', \App\Models\Office::all()[0]) }}"
+                       class="nav-link @if(request()->routeIs('office.edit', \App\Models\Office::all()[0])) active @endif ">
+                        <i class="fa fa-users nav-icon"></i>
+                        <p>{{ __("messages.office") }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('farmers.index') }}"
                        class="nav-link @if(request()->routeIs('farmers.index')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
-                        <p>Фермерлар</p>
+                        <p>{{ __("messages.farmers") }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('workers.index') }}"
                        class="nav-link @if(request()->routeIs('workers.index')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
-                        <p>Ишчилар</p>
+                        <p>{{ __("messages.workers") }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('reports.index') }}"
                        class="nav-link @if(request()->routeIs('reports.index')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
-                        <p>Бажарилган ишлар</p>
+                        <p>{{ __("messages.reports") }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('reports.workers') }}"
                        class="nav-link @if(request()->routeIs('reports.workers')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
-                        <p>Иш ҳақи</p>
+                        <p>{{ __("messages.report_worker") }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('services.index') }}"
                        class="nav-link @if(request()->routeIs('services.index')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
-                        <p>Нархлар</p>
+                        <p>{{ __("messages.services") }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('tractors.index') }}"
                        class="nav-link @if(request()->routeIs('tractors.index')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
-                        <p>Тракторлар</p>
+                        <p>{{ __("messages.tractors") }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('types.index') }}"
                        class="nav-link @if(request()->routeIs('types.index')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
-                        <p>Улчов бирликлари</p>
+                        <p>{{ __("messages.types") }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -94,7 +101,7 @@
                            class="nav-link" onclick="event.preventDefault();
                            this.closest('form').submit();">
                             <i class="fa fa-sign-out-alt nav-icon"></i>
-                            <p>Чикиш</p>
+                            <p>{{ __("messages.logout") }}</p>
                         </a>
                     </form>
                 </li>

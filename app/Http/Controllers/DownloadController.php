@@ -69,7 +69,7 @@ class DownloadController extends Controller
             case "11": $month = "Ноябрь"; break;
             case "12": $month = "Декабрь"; break;
         }
-        $month = strtoupper($month);
+        $month = mb_strtoupper($month, 'UTF-8');
         $pdf = Pdf::loadView('admin.download.worker',[
             'workers' => $workers,
             'sum' => $sum,
@@ -81,5 +81,61 @@ class DownloadController extends Controller
         ])->setPaper('a4', 'landscape');
         $pdf->setOption(['dpi' => 150, 'defaultFont' => 'sans-serif']);
         return $pdf->download("Иш хаки ({$from_date} {$to_date}).pdf");
+    }
+
+    public function farmers(Request $request){
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+        $worker_id = $request->worker_id;
+        $farmer_id = $request->farmer_id;
+        $sum['staj'] = 0;
+        $sum['price'] = 0;
+        if (!isset($from_date)) {
+            $reports = Report::orderBy('start_date', 'DESC')->get();
+            $page = 'farmer';
+        } else {
+            if (isset($worker_id)) {
+                if (isset($farmer_id)) {
+                    $reports = Report::orderBy('start_date', 'DESC')->whereBetween('start_date', [$from_date, $to_date])->where('worker_id', $worker_id)->where('farmer_id', $farmer_id)->get();
+                } else {
+                    $reports = Report::orderBy('start_date', 'DESC')->whereBetween('start_date', [$from_date, $to_date])->where('worker_id', $worker_id)->get();
+                }
+                foreach ($reports as $report) {
+                    $sum['staj'] += $report->weight;
+                    $sum['price'] += $report->service->price * $report->weight;
+                }
+                $page = 'worker';
+            } else {
+                if (isset($farmer_id)) {
+                    $reports = Report::orderBy('start_date', 'DESC')->whereBetween('start_date', [$from_date, $to_date])->where('farmer_id', $farmer_id)->get();
+                } else
+                    $reports = Report::orderBy('start_date', 'DESC')->whereBetween('start_date', [$from_date, $to_date])->get();
+                $page = 'farmer';
+            }
+        }
+        $year = date('Y', strtotime($from_date));
+        $month = date('m', strtotime($from_date));
+        switch ($month){
+            case "01": $month = "Январь"; break;
+            case "02": $month = "Феврал"; break;
+            case "03": $month = "Март"; break;
+            case "04": $month = "Апрел"; break;
+            case "05": $month = "Май"; break;
+            case "06": $month = "Июнь"; break;
+            case "07": $month = "Июль"; break;
+            case "08": $month = "Аугуст"; break;
+            case "09": $month = "Сенябрь"; break;
+            case "10": $month = "Октябрь"; break;
+            case "11": $month = "Ноябрь"; break;
+            case "12": $month = "Декабрь"; break;
+        }
+        $month = mb_strtoupper($month, 'UTF-8');
+
+        $pdf = Pdf::loadView('admin.download.farmer',
+            compact('reports', 'page','sum',
+                'from_date', 'to_date','worker_id','farmer_id','year','month'))->setPaper('a4', 'landscape');
+
+        $pdf->setOption(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+        return $pdf->stream("Фермер.pdf");
     }
 }

@@ -5,13 +5,13 @@
             <div class="col">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title" style="font-size: x-large">Фермерлар</h3>
+                        <h3 class="card-title" style="font-size: x-large">{{ __("messages.farmers") }}</h3>
                     </div>
                     <div class="card-body">
                         <div class="d-flex mb-3">
                             <div>
                                 <a href="{{ route('farmers.create') }}" class="btn btn-success">
-                                    <i class="fa fa-plus"></i> Қўшиш
+                                    <i class="fa fa-plus"></i> {{ __("messages.add") }}
                                 </a>
                             </div>
                         </div>

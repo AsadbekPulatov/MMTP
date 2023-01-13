@@ -7,7 +7,7 @@
         <div class="col">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title" style="font-size: x-large">Улчов бирликлари</h3>
+                    <h3 class="card-title" style="font-size: x-large">{{ __("messages.types") }}</h3>
                 </div>
                 <div class="card-body">
                     @include("admin.types.create")

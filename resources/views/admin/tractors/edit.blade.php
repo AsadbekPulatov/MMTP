@@ -20,8 +20,8 @@
                         </div>
                     </div>
                     <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Бекор қилиш</button>
-                        <button type="submit" class="btn btn-primary">Сақлаш</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{ __("messages.close") }}</button>
+                        <button type="submit" class="btn btn-primary">{{ __("messages.save") }}</button>
                     </div>
                 </form>
             </div>

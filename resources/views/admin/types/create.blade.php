@@ -1,7 +1,7 @@
 <div class="d-flex mb-3">
     <div>
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-create">
-            <i class="fa fa-plus"></i> Қўшиш
+            <i class="fa fa-plus"></i> {{ __("messages.add") }}
         </button>
     </div>
     <div class="modal fade" id="modal-create">
@@ -24,8 +24,8 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Бекор қилиш</button>
-                            <button type="submit" class="btn btn-primary">Сақлаш</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">{{ __("messages.close") }}</button>
+                            <button type="submit" class="btn btn-primary">{{ __("messages.save") }}</button>
                         </div>
                     </form>
                 </div>

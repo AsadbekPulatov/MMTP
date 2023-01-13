@@ -5,6 +5,7 @@ use App\Http\Controllers\TractorController;
 use App\Http\Controllers\FarmerController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TypeController;
+use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\WorkerController;
 use Illuminate\Support\Facades\Route;
@@ -30,8 +31,10 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/download/workers/',[\App\Http\Controllers\DownloadController::class, 'workers'])->name('download.workers');
+    Route::get('/download/farmers/',[\App\Http\Controllers\DownloadController::class, 'farmers'])->name('download.farmers');
     Route::get('/report/workers/', [ReportController::class, 'worker'])->name('reports.workers');
     Route::resource('reports', ReportController::class);
+    Route::resource('office', OfficeController::class);
     Route::resource('farmers', FarmerController::class);
     Route::resource('services', ServiceController::class);
     Route::resource('tractors', TractorController::class);

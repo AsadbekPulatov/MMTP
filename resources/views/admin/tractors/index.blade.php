@@ -7,7 +7,7 @@
         <div class="col">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title" style="font-size: x-large">Тракторлар</h3>
+                    <h3 class="card-title" style="font-size: x-large">{{ __("messages.tractors") }}</h3>
                 </div>
                 <div class="card-body">
                     @include("admin.tractors.create")

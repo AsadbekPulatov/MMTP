@@ -71,10 +71,11 @@ class ReportController extends Controller
         $to_date = $request->to_date;
         $worker_id = $request->worker_id;
         $farmer_id = $request->farmer_id;
+        $sum['staj'] = 0;
+        $sum['price'] = 0;
         if (!isset($from_date)) {
             $reports = Report::orderBy('start_date', 'DESC')->get();
             $page = 'farmer';
-            return view('admin.reports.index', compact('reports', 'page'));
         } else {
             if (isset($worker_id)) {
                 if (isset($farmer_id)) {
@@ -82,23 +83,21 @@ class ReportController extends Controller
                 } else {
                     $reports = Report::orderBy('start_date', 'DESC')->whereBetween('start_date', [$from_date, $to_date])->where('worker_id', $worker_id)->get();
                 }
-                $sum['staj'] = 0;
-                $sum['price'] = 0;
+
                 foreach ($reports as $report) {
                     $sum['staj'] += $report->weight;
                     $sum['price'] += $report->service->price * $report->weight;
                 }
                 $page = 'worker';
-                return view('admin.reports.index', compact('reports', 'page','sum'));
             } else {
                 if (isset($farmer_id)) {
                     $reports = Report::orderBy('start_date', 'DESC')->whereBetween('start_date', [$from_date, $to_date])->where('farmer_id', $farmer_id)->get();
                 } else
                     $reports = Report::orderBy('start_date', 'DESC')->whereBetween('start_date', [$from_date, $to_date])->get();
                 $page = 'farmer';
-                return view('admin.reports.index', compact('reports', 'page'));
             }
         }
+        return view('admin.reports.index', compact('reports', 'page','sum', 'from_date', 'to_date','worker_id','farmer_id'));
     }
 
     /**
