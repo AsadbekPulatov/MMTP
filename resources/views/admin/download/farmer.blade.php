@@ -36,18 +36,37 @@
 
         .office {
             width: 500px;
-            font-weight: bold;
+            /*font-weight: bold;*/
             text-align: center;
             position: absolute;
             left: 1%;
+            top: 10%;
         }
 
         .farmer {
             width: 500px;
-            font-weight: bold;
+            /*font-weight: bold;*/
             text-align: center;
             position: absolute;
             left: 70%;
+            top: 10%;
+        }
+        .info{
+            line-height: 30px;
+            padding: 15px;
+            width: 100%;
+            position: absolute;
+            left: 1%;
+            top: 80%;
+        }
+        .info-right{
+            line-height: 50px;
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+            position: absolute;
+            left: 30%;
+            top: 80%;
         }
     </style>
 </head>
@@ -57,7 +76,7 @@
     $s = 0;
     ?>
     <h1>ХИСОБ-ФАКТУР №_____</h1>
-    <h1>{{$month}} {{$year}}-йил</h1>
+    <h1>{{ $date }}</h1>
     <div class="office">
         <p>Хизмат курсатувчи: </p>
         <p>{{\App\Models\Office::all()[0]->name}}</p>
@@ -127,25 +146,31 @@
     </p>
     <p style="margin-left: 50px; font-size: 18px;">Эслатма: Ёкилги фермер хужалиги хисобидан.</p>
 
-    <div>
-        <p>Рахбар: </p>
-        <p>Бош хисобчи: </p>
+    <div class="info">
+        <pre>Рахбар:                                         {{ \App\Models\Office::all()[0]->leader }}</pre>
+        <pre>Бош хисобчи:                               {{ \App\Models\Office::all()[0]->accountant }}</pre>
+        <pre>                       м.у.</pre>
+    </div>
+    <div class="info-right">
+        <p>Хисоб-фактурани олдим</p>
+        <p>______________________________________________________</p>
     </div>
 @elseif($page == 'worker')
+    <p>{{\App\Models\Office::all()[0]->name}} трактор хайдовчиси {{ $reports[0]->worker->name }}нинг {{ $date }} хисобланган иш хаки</p>
     <div>
         <table border="1">
             <thead>
             <tr class="header">
-                <th>Т/р</th>
-                <th>Санаси</th>
-                <th>Тракторчининг Ф.И.Ш</th>
-                <th>Ф\х номи</th>
-                <th>Иш тури</th>
-                <th>Тр маркаси</th>
-                <th>у\б</th>
-                <th>Микдори</th>
-                <th>Нархи</th>
-                <th>Жами</th>
+                <th style="width: 3%;">Т/р</th>
+                <th style="width: 10%;">Санаси</th>
+                <th style="width: 15%;">Тракторчининг Ф.И.Ш</th>
+                <th style="width: 15%">Ф\х номи</th>
+                <th style="width: 15%">Иш тури</th>
+                <th style="width: 8%">Тр маркаси</th>
+                <th style="width: 5%">у\б</th>
+                <th style="width: 8%">Микдори</th>
+                <th style="width: 8%">Бахоси</th>
+                <th style="width: 10%">Жами хизмат бахоси</th>
             </tr>
             </thead>
             <tbody>

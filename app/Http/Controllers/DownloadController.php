@@ -6,6 +6,7 @@ use App\Models\Report;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Http\Service\Report as ReportService;
+use App\Http\Service\DateFormat;
 
 class DownloadController extends Controller
 {
@@ -13,36 +14,23 @@ class DownloadController extends Controller
         $report = new ReportService();
         $from_date = $request->from_date;
         $to_date = $request->to_date;
+
         $worker_id = $request->worker_id;
         $report = $report->report(NULL,$worker_id,$from_date,$to_date);
         $workers = $report['data'];
         $sum = $report['sum'];
+        $from_date = $report['from_date'];
+        $to_date = $report['to_date'];
 
-        $year = date('Y', strtotime($from_date));
-        $month = date('m', strtotime($from_date));
-        switch ($month){
-            case "01": $month = "Январь"; break;
-            case "02": $month = "Феврал"; break;
-            case "03": $month = "Март"; break;
-            case "04": $month = "Апрел"; break;
-            case "05": $month = "Май"; break;
-            case "06": $month = "Июнь"; break;
-            case "07": $month = "Июль"; break;
-            case "08": $month = "Аугуст"; break;
-            case "09": $month = "Сенябрь"; break;
-            case "10": $month = "Октябрь"; break;
-            case "11": $month = "Ноябрь"; break;
-            case "12": $month = "Декабрь"; break;
-        }
-        $month = mb_strtoupper($month, 'UTF-8');
+        $date = new DateFormat();
+        $date = $date->date($from_date, $to_date);
         $pdf = Pdf::loadView('admin.download.worker',[
             'workers' => $workers,
             'sum' => $sum,
             'from_date' => $from_date,
             'to_date' => $to_date,
             'worker_id' => $worker_id,
-            'year' => $year,
-            'month'=>$month,
+            'date' => $date,
         ])->setPaper('a4', 'landscape');
         $pdf->setOption(['dpi' => 150, 'defaultFont' => 'sans-serif']);
         return $pdf->download("Иш хаки ({$from_date} {$to_date}).pdf");
@@ -58,29 +46,25 @@ class DownloadController extends Controller
         $reports = $report['data'];
         $sum = $report['sum'];
         $page = $report['page'];
-        $year = date('Y', strtotime($from_date));
-        $month = date('m', strtotime($from_date));
-        switch ($month){
-            case "01": $month = "Январь"; break;
-            case "02": $month = "Феврал"; break;
-            case "03": $month = "Март"; break;
-            case "04": $month = "Апрел"; break;
-            case "05": $month = "Май"; break;
-            case "06": $month = "Июнь"; break;
-            case "07": $month = "Июль"; break;
-            case "08": $month = "Аугуст"; break;
-            case "09": $month = "Сенябрь"; break;
-            case "10": $month = "Октябрь"; break;
-            case "11": $month = "Ноябрь"; break;
-            case "12": $month = "Декабрь"; break;
-        }
-        $month = mb_strtoupper($month, 'UTF-8');
+        $from_date = $report['from_date'];
+        $to_date = $report['to_date'];
+
+        $date = new DateFormat();
+        $date = $date->date($from_date, $to_date);
 
         $pdf = Pdf::loadView('admin.download.farmer',
             compact('reports', 'page','sum',
-                'from_date', 'to_date','worker_id','farmer_id','year','month'))->setPaper('a4', 'landscape');
+                'from_date', 'to_date','worker_id','farmer_id','date'))->setPaper('a4', 'landscape');
 
         $pdf->setOption(['dpi' => 150, 'defaultFont' => 'sans-serif']);
-        return $pdf->stream("Фермер.pdf");
+        if ($page == "farmer"){
+            $farmer = $reports[0]->farmer->name;
+            return $pdf->download("{$farmer}({$from_date} {$to_date}).pdf");
+        }
+        if ($page == "worker"){
+            $worker = $reports[0]->worker->name;
+            return $pdf->download("{$worker}({$from_date} {$to_date}).pdf");
+        }
+
     }
 }

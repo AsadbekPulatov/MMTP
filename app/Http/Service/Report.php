@@ -50,7 +50,7 @@ class Report
             }
             $sum['staj'] = array_sum(array_column($arr, 'sum_staj'));
             $sum['price'] = array_sum(array_column($arr, 'sum_price'));
-            return ['data' => $arr, 'sum' => $sum];
+            return ['data' => $arr, 'sum' => $sum, 'from_date' => $from_date, 'to_date' => $to_date];
         }
         //reports.index
         else {
@@ -78,7 +78,7 @@ class Report
                         $reports = ReportModel::orderBy('start_date', 'DESC')->whereBetween('start_date', [$from_date, $to_date])->get();
                     $page = 'farmer';
                 }
-                return ['data' => $reports, 'sum' => $sum, 'page' => $page];
+                return ['data' => $reports, 'sum' => $sum, 'page' => $page, 'from_date' => $from_date, 'to_date' => $to_date];
             }
         }
     }

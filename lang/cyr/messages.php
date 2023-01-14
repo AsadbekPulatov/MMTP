@@ -22,4 +22,18 @@ return [
     "types" => "Улчов бирликлари",
     "login" => "Кириш",
     "logout" => "Чиқиш",
+
+    //    months
+    "january" => "Январь",
+    "february" => "Феврал",
+    "march" => "Март",
+    "april" => "Апрел",
+    "may" => "Май",
+    "june" => "Июнь",
+    "july" => "Июль",
+    "august" => "Август",
+    "september" => "Сентябрь",
+    "october" => "Октябрь",
+    "november" => "Ноябрь",
+    "december" => "Декабрь",
 ];
