@@ -6,7 +6,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Workers</title>
+    @if($page == 'worker')
+        <title>{{ $reports[0]->worker->name }}</title>
+    @else
+        <title>{{ $reports[0]->farmer->name }}</title>
+    @endif
     <style>
         * {
             font-family: "DejaVu Sans", sans-serif;
@@ -27,7 +31,7 @@
         td, th {
             border: 1px solid black;
             text-align: center;
-            padding: 8px;
+            /*padding: 8px;*/
         }
 
         .header > th {
@@ -35,6 +39,7 @@
         }
 
         .office {
+            line-height: 20px;
             width: 500px;
             /*font-weight: bold;*/
             text-align: center;
@@ -44,6 +49,7 @@
         }
 
         .farmer {
+            line-height: 20px;
             width: 500px;
             /*font-weight: bold;*/
             text-align: center;
@@ -52,21 +58,25 @@
             top: 10%;
         }
         .info{
-            line-height: 30px;
-            padding: 15px;
+            /*border: 1px solid black;*/
+            padding: 10px;
             width: 100%;
-            position: absolute;
-            left: 1%;
-            top: 80%;
+            margin-top: 20px;
+        }
+        .info-left{
+            /*border: 1px solid red;*/
+            float: left;
+            line-height: 20px;
+            padding: 10px;
+            width: 40%;
         }
         .info-right{
-            line-height: 50px;
+            /*border: 1px solid blue;*/
+            float: right;
+            line-height: 30px;
             text-align: center;
-            padding: 15px;
-            width: 100%;
-            position: absolute;
-            left: 30%;
-            top: 80%;
+            padding: 10px;
+            width: 40%;
         }
     </style>
 </head>
@@ -90,7 +100,7 @@
         <p>МФО: {{$reports[0]->farmer->bank_code}} ИНН: {{$reports[0]->farmer->inn}}</p>
     </div>
     <div>
-        <table border="1" style="margin-top: 250px;">
+        <table border="1" style="margin-top: 200px;">
             <thead>
             <tr class="header">
                 <th rowspan="2">#</th>
@@ -147,16 +157,18 @@
     <p style="margin-left: 50px; font-size: 18px;">Эслатма: Ёкилги фермер хужалиги хисобидан.</p>
 
     <div class="info">
-        <pre>Рахбар:                                         {{ \App\Models\Office::all()[0]->leader }}</pre>
-        <pre>Бош хисобчи:                               {{ \App\Models\Office::all()[0]->accountant }}</pre>
-        <pre>                       м.у.</pre>
-    </div>
-    <div class="info-right">
-        <p>Хисоб-фактурани олдим</p>
-        <p>______________________________________________________</p>
+        <div class="info-left">
+            <pre>Рахбар:                                         {{ \App\Models\Office::all()[0]->leader }}</pre>
+            <pre>Бош хисобчи:                               {{ \App\Models\Office::all()[0]->accountant }}</pre>
+            <pre>                       м.у.</pre>
+        </div>
+        <div class="info-right">
+            <p>Хисоб-фактурани олдим</p>
+            <p>______________________________________________________</p>
+        </div>
     </div>
 @elseif($page == 'worker')
-    <p>{{\App\Models\Office::all()[0]->name}} трактор хайдовчиси {{ $reports[0]->worker->name }}нинг {{ $date }} хисобланган иш хаки</p>
+    <p>{{\App\Models\Office::all()[0]->name}} трактор хайдовчиси {{ $reports[0]->worker->name }}нинг {{ $date }} бажарган хизматлари</p>
     <div>
         <table border="1">
             <thead>
@@ -166,11 +178,11 @@
                 <th style="width: 15%;">Тракторчининг Ф.И.Ш</th>
                 <th style="width: 15%">Ф\х номи</th>
                 <th style="width: 15%">Иш тури</th>
-                <th style="width: 8%">Тр маркаси</th>
+                <th style="width: 7%">Тр маркаси</th>
                 <th style="width: 5%">у\б</th>
-                <th style="width: 8%">Микдори</th>
-                <th style="width: 8%">Бахоси</th>
-                <th style="width: 10%">Жами хизмат бахоси</th>
+                <th style="width: 7%">Микдори</th>
+                <th style="width: 7%">Бахоси</th>
+                <th style="width: 15%">Жами хизмат бахоси</th>
             </tr>
             </thead>
             <tbody>
