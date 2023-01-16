@@ -16,11 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        User::create([
-//            'name' => 'Админ',
-//            'email' => 'admin@gmail.com',
-//            'password' => bcrypt('admin'),
-//        ]);
+        User::create([
+            'name' => 'Админ',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('admin'),
+        ]);
         Office::create([
             'name' => "",
             'inn' => "000000000",
