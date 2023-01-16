@@ -40,21 +40,7 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $tractor_id = $request->input('tractor_id');
-        $price = $request->input('price');
-        $price_worker = $request->input('price_worker');
-        $count = $request->input('count');
-        foreach ($tractor_id as $key => $value) {
-            $service = new Service();
-            $service->name = $request->input('name');
-            $service->type_id = $request->input('type_id');
-            $service->date = $request->input('date');
-            $service->tractor_id = $value;
-            $service->price = $price[$key];
-            $service->price_worker = round($price_worker[$key], 2);
-            $service->count = $count[$key];
-            $service->save();
-        }
+        Service::create($request->all());
         return redirect()->route('services.index')->with('success', 'Service created successfully.');
     }
 
