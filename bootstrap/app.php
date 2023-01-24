@@ -41,6 +41,7 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+//$app->register(\Aqhmal\TelegramLog\TelegramLogServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Return The Application

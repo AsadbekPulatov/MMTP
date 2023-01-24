@@ -11,6 +11,7 @@ use App\Models\Type;
 use App\Models\Worker;
 use Illuminate\Http\Request;
 use App\Http\Service\Report as ReportService;
+use Illuminate\Support\Facades\Log;
 
 class ReportController extends Controller
 {
@@ -33,6 +34,7 @@ class ReportController extends Controller
 
     public function index(Request $request)
     {
+//        Log::error("Salom",[1,2,3]);
         $from_date = $request->from_date;
         $to_date = $request->to_date;
         $worker_id = $request->worker_id;

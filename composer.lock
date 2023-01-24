@@ -4,8 +4,68 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f898c0e48431d9c4855e78f501bd8b58",
+    "content-hash": "36513b329539bf8f51c6f0180db9420e",
     "packages": [
+        {
+            "name": "aqhmal/laravel-telegram-log",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aqhmal/laravel-telegram-log.git",
+                "reference": "3de826fe983350f986898a74dbd2f782af9d86c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aqhmal/laravel-telegram-log/zipball/3de826fe983350f986898a74dbd2f782af9d86c6",
+                "reference": "3de826fe983350f986898a74dbd2f782af9d86c6",
+                "shasum": ""
+            },
+            "require": {
+                "monolog/monolog": "^1.26|^2.3",
+                "php": "^7.1|^7.2|^7.3|^7.4|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Aqhmal\\TelegramLog\\TelegramLogServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Helpers/Helper.php"
+                ],
+                "psr-4": {
+                    "Aqhmal\\TelegramLog\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aqhmal",
+                    "email": "me@aqhmal.com"
+                }
+            ],
+            "description": "A package to send Laravel/Lumen logs to Telegram via Telegram Bot.",
+            "homepage": "https://github.com/aqhmal/laravel-telegram-log",
+            "keywords": [
+                "laravel",
+                "log",
+                "lumen",
+                "monolog",
+                "telegram",
+                "telegram-bot"
+            ],
+            "support": {
+                "issues": "https://github.com/aqhmal/laravel-telegram-log/issues",
+                "source": "https://github.com/aqhmal/laravel-telegram-log"
+            },
+            "time": "2022-06-23T07:10:46+00:00"
+        },
         {
             "name": "barryvdh/laravel-dompdf",
             "version": "v2.0.0",

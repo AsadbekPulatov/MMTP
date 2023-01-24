@@ -51,9 +51,15 @@ return [
     */
 
     'channels' => [
+        'telegram' => [
+            'driver' => 'custom',
+            'via' => \Aqhmal\TelegramLog\TelegramLog::class,
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['single', 'telegram'],
             'ignore_exceptions' => false,
         ],
 
