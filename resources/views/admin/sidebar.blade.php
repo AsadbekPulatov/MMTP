@@ -24,13 +24,13 @@
         <nav class="mt-2">
 
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <li class="nav-item">
-                    <a href="{{ route('dashboard') }}"
-                       class="nav-link @if(request()->routeIs('dashboard')) active @endif ">
-                        <i class="fa fa-users nav-icon"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{ route('dashboard') }}"--}}
+{{--                       class="nav-link @if(request()->routeIs('dashboard')) active @endif ">--}}
+{{--                        <i class="fa fa-users nav-icon"></i>--}}
+{{--                        <p>Dashboard</p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a href="{{ route('profile.edit') }}"
                        class="nav-link @if(request()->routeIs('profile.edit')) active @endif ">

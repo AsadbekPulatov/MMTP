@@ -6,7 +6,7 @@ use App\Models\Report as ReportModel;
 
 class Report
 {
-    public function report($farmer_id, $worker_id, $from_date=Null, $to_date=Null, $page="none"){
+    public function report($farmer_id, $worker_id, $from_date=Null, $to_date=Null, $page="none", $order_by="DESC"){
         if(!isset($from_date)){
             $from_date = ReportModel::orderby('start_date', 'ASC')->first();
             if(isset($from_date)){
@@ -21,8 +21,8 @@ class Report
         }
         if ($page == "none") {
             if (isset($worker_id))
-                $reports = ReportModel::orderBy('start_date', 'DESC')->whereBetween('start_date', [$from_date, $to_date])->whereIn('worker_id', $worker_id)->get();
-            else $reports = ReportModel::orderBy('start_date', 'DESC')->whereBetween('start_date', [$from_date, $to_date])->get();
+                $reports = ReportModel::orderBy('start_date', $order_by)->whereBetween('start_date', [$from_date, $to_date])->whereIn('worker_id', $worker_id)->get();
+            else $reports = ReportModel::orderBy('start_date', $order_by)->whereBetween('start_date', [$from_date, $to_date])->get();
             $arr = [];
             if (isset($reports)){
                 foreach ($reports as $worker) {
@@ -64,14 +64,14 @@ class Report
             $sum['staj'] = 0;
             $sum['price'] = 0;
             if (!isset($from_date)) {
-                $reports = ReportModel::orderBy('start_date', 'DESC')->get();
+                $reports = ReportModel::orderBy('start_date', $order_by)->get();
                 $page = 'farmer';
             } else {
                 if (isset($worker_id)) {
                     if (isset($farmer_id)) {
-                        $reports = ReportModel::orderBy('start_date', 'DESC')->whereBetween('start_date', [$from_date, $to_date])->where('worker_id', $worker_id)->where('farmer_id', $farmer_id)->get();
+                        $reports = ReportModel::orderBy('start_date', $order_by)->whereBetween('start_date', [$from_date, $to_date])->where('worker_id', $worker_id)->where('farmer_id', $farmer_id)->get();
                     } else {
-                        $reports = ReportModel::orderBy('start_date', 'DESC')->whereBetween('start_date', [$from_date, $to_date])->where('worker_id', $worker_id)->get();
+                        $reports = ReportModel::orderBy('start_date', $order_by)->whereBetween('start_date', [$from_date, $to_date])->where('worker_id', $worker_id)->get();
                     }
                     foreach ($reports as $report) {
                         $sum['staj'] += $report->weight;
@@ -80,9 +80,9 @@ class Report
                     $page = 'worker';
                 } else {
                     if (isset($farmer_id)) {
-                        $reports = ReportModel::orderBy('start_date', 'DESC')->whereBetween('start_date', [$from_date, $to_date])->where('farmer_id', $farmer_id)->get();
+                        $reports = ReportModel::orderBy('start_date', $order_by)->whereBetween('start_date', [$from_date, $to_date])->where('farmer_id', $farmer_id)->get();
                     } else
-                        $reports = ReportModel::orderBy('start_date', 'DESC')->whereBetween('start_date', [$from_date, $to_date])->get();
+                        $reports = ReportModel::orderBy('start_date', $order_by)->whereBetween('start_date', [$from_date, $to_date])->get();
                     $page = 'farmer';
                 }
             }

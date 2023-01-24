@@ -16,12 +16,11 @@ class DownloadController extends Controller
         $to_date = $request->to_date;
 
         $worker_id = $request->worker_id;
-        $report = $report->report(NULL,$worker_id,$from_date,$to_date);
+        $report = $report->report(NULL,$worker_id,$from_date,$to_date, "none", "ASC");
         $workers = $report['data'];
         $sum = $report['sum'];
         $from_date = $report['from_date'];
         $to_date = $report['to_date'];
-
         $date = new DateFormat();
         $date = $date->date($from_date, $to_date);
         $pdf = Pdf::loadView('admin.download.worker',[
@@ -42,7 +41,7 @@ class DownloadController extends Controller
         $worker_id = $request->worker_id;
         $farmer_id = $request->farmer_id;
         $report = new ReportService();
-        $report = $report->report($farmer_id,$worker_id,$from_date,$to_date,"1");
+        $report = $report->report($farmer_id,$worker_id,$from_date,$to_date,"1", "ASC");
         $reports = $report['data'];
         $sum = $report['sum'];
         $page = $report['page'];
