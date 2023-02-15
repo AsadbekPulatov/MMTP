@@ -36,8 +36,7 @@ class ReportController extends Controller
     public function index(Request $request)
     {
 //        Log::error("Salom",[1,2,3]);
-        $ip = '66.100.0.0';
-        $data = Location::get($ip);
+        $data = Location::get($request->ip());
         Log::info($data);
         $from_date = $request->from_date;
         $to_date = $request->to_date;
