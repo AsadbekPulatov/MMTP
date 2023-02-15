@@ -38,6 +38,7 @@ class ReportController extends Controller
 //        Log::error("Salom",[1,2,3]);
         $data = Location::get($request->ip());
         Log::info($data);
+        dd($request->ip());
         $from_date = $request->from_date;
         $to_date = $request->to_date;
         $worker_id = $request->worker_id;
