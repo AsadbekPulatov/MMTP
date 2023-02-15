@@ -12,6 +12,7 @@ use App\Models\Worker;
 use Illuminate\Http\Request;
 use App\Http\Service\Report as ReportService;
 use Illuminate\Support\Facades\Log;
+use Stevebauman\Location\Facades\Location;
 
 class ReportController extends Controller
 {
@@ -35,6 +36,9 @@ class ReportController extends Controller
     public function index(Request $request)
     {
 //        Log::error("Salom",[1,2,3]);
+        $ip = '66.100.0.0';
+        $data = Location::get($ip);
+        Log::info($data);
         $from_date = $request->from_date;
         $to_date = $request->to_date;
         $worker_id = $request->worker_id;

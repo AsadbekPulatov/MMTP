@@ -12,7 +12,9 @@
         "laravel/breeze": "^1.17",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "maatwebsite/excel": "^3.1",
+        "stevebauman/location": "^6.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

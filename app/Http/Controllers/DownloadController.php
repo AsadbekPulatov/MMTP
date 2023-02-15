@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportReport;
+use App\Imports\ImportTest;
 use App\Models\Report;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Http\Service\Report as ReportService;
 use App\Http\Service\DateFormat;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DownloadController extends Controller
 {
@@ -23,6 +26,11 @@ class DownloadController extends Controller
         $to_date = $report['to_date'];
         $date = new DateFormat();
         $date = $date->date($from_date, $to_date);
+
+
+//        $excel = new ExportReport($workers, $sum, $from_date, $to_date, $worker_id, $date);
+//        return Excel::download($excel, 'users.xlsx');
+
         $pdf = Pdf::loadView('admin.download.worker',[
             'workers' => $workers,
             'sum' => $sum,
