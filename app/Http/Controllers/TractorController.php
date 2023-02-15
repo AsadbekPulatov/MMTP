@@ -37,7 +37,7 @@ class TractorController extends Controller
     public function store(Request $request)
     {
         Tractor::create($request->all());
-        return redirect()->back()->with('success', 'Tractor added successfully');
+        return redirect()->back()->with('success', __('messages.tractor_created'));
     }
 
     /**
@@ -73,7 +73,7 @@ class TractorController extends Controller
     {
         $tractor = Tractor::find($request->id);
         $tractor->update($request->all());
-        return redirect()->back()->with('success', 'Tractor updated successfully');
+        return redirect()->back()->with('success', __('messages.tractor_updated'));
     }
 
     /**
@@ -85,6 +85,6 @@ class TractorController extends Controller
     public function destroy(Tractor $tractor)
     {
         $tractor->delete();
-        return redirect()->back()->with('success', 'Tractor deleted successfully');
+        return redirect()->back()->with('success', __('messages.tractor_deleted'));
     }
 }

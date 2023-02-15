@@ -70,7 +70,7 @@ class OfficeController extends Controller
     public function update(Request $request, Office $office)
     {
         $office->update($request->all());
-        return redirect()->back()->with('success', 'Office updated successfully');
+        return redirect()->back()->with('success', __('messages.office_updated'));
     }
 
     /**

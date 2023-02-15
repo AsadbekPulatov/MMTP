@@ -37,7 +37,7 @@ class WorkerController extends Controller
     public function store(Request $request)
     {
         Worker::create($request->all());
-        return redirect()->back()->with('success', 'Worker added successfully');
+        return redirect()->back()->with('success', __('messages.worker_created'));
     }
 
     /**
@@ -73,7 +73,7 @@ class WorkerController extends Controller
     {
         $worker = Worker::find($request->id);
         $worker->update($request->all());
-        return redirect()->back()->with('success', 'Worker updated successfully');
+        return redirect()->back()->with('success', __('messages.worker_updated'));
     }
 
     /**
@@ -85,6 +85,6 @@ class WorkerController extends Controller
     public function destroy(Worker $worker)
     {
         $worker->delete();
-        return redirect()->back()->with('success', 'Worker deleted successfully');
+        return redirect()->back()->with('success', __('messages.worker_deleted'));
     }
 }

@@ -1,5 +1,4 @@
 @extends('admin.master')
-{{--@section('title', 'Нархлар')--}}
 @section('content')
     <div class="row">
         <div class="col">
@@ -67,13 +66,4 @@
         </div>
         <!-- /.col-md-6 -->
     </div>
-@endsection
-@section('custom-scripts')
-    <script>
-
-        @if ($message = Session::get('success'))
-        toastr.success("{{$message}}");
-        @endif
-
-    </script>
 @endsection

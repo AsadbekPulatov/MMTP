@@ -35,7 +35,7 @@
                     <a href="{{ route('profile.edit') }}"
                        class="nav-link @if(request()->routeIs('profile.edit')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
-                        <p>Aккаунт</p>
+                        <p>{{ __("messages.profile") }}</p>
                     </a>
                 </li>
                 <li class="nav-item">

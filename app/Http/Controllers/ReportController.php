@@ -38,9 +38,6 @@ class ReportController extends Controller
 //        Log::error("Salom",[1,2,3]);
 //        $ip = '10.1.28.142';
 //        $ip = '37.110.215.45';
-        $data = Location::get($request->ip());
-        Log::info($data);
-        dd($request->ip());
         $from_date = $request->from_date;
         $to_date = $request->to_date;
         $worker_id = $request->worker_id;
@@ -77,7 +74,7 @@ class ReportController extends Controller
     public function store(Request $request)
     {
         Report::create($request->all());
-        return redirect()->route('reports.index')->with('success', 'Report created successfully.');
+        return redirect()->route('reports.index')->with('success', __("messages.report_created"));
     }
 
     /**
@@ -117,7 +114,7 @@ class ReportController extends Controller
     public function update(Request $request, Report $report)
     {
         $report->update($request->all());
-        return redirect()->route('reports.index')->with('success', 'Report updated successfully');
+        return redirect()->route('reports.index')->with('success', __("messages.report_updated"));
     }
 
     /**
@@ -129,6 +126,6 @@ class ReportController extends Controller
     public function destroy(Report $report)
     {
         $report->delete();
-        return redirect()->route('reports.index')->with('success', 'Report deleted successfully');
+        return redirect()->route('reports.index')->with('success', __("messages.report_deleted"));
     }
 }

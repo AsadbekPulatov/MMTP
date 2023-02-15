@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Profile')
+@section('title',  __("messages.profile"))
 @section('content')
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 

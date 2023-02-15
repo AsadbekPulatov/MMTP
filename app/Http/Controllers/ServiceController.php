@@ -41,7 +41,7 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         Service::create($request->all());
-        return redirect()->route('services.index')->with('success', 'Service created successfully.');
+        return redirect()->route('services.index')->with('success', __("messages.service_created"));
     }
 
     /**
@@ -77,7 +77,7 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         $service->update($request->all());
-        return redirect()->route('services.index')->with('success', 'Service updated successfully');
+        return redirect()->route('services.index')->with('success', __("messages.service_updated"));
     }
 
     /**
@@ -89,6 +89,6 @@ class ServiceController extends Controller
     public function destroy(Service $service)
     {
         $service->delete();
-        return redirect()->route('services.index')->with('success', 'Service deleted successfully');
+        return redirect()->route('services.index')->with('success', __("messages.service_deleted"));
     }
 }

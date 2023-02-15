@@ -132,6 +132,7 @@
             var select = document.getElementById('service_id');
             ServiceName = [];
             newServices = [];
+            console.log(services);
             for (var i = 0; i < services.length; i++) {
                 if (services[i].date <= date && services[i].tractor_id == tractor_id && ServiceName.includes(services[i].name) == false) {
                     ServiceName.push(services[i].name);
@@ -139,6 +140,7 @@
                 }
             }
             select.innerHTML = '';
+            console.log(newServices)
             var option = document.createElement('option');
             option.value = "";
             option.innerHTML = "Иш турини танланг";

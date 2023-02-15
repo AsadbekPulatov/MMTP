@@ -37,8 +37,7 @@ class TypeController extends Controller
     public function store(Request $request)
     {
         Type::create($request->all());
-        return redirect()->back()->with('success', 'Type created successfully');
-        dd($request->all());
+        return redirect()->back()->with('success', __('messages.type_created'));
     }
 
     /**
@@ -74,7 +73,7 @@ class TypeController extends Controller
     {
         $type = Type::find($request->id);
         $type->update($request->all());
-        return redirect()->back()->with('success', 'Type updated successfully');
+        return redirect()->back()->with('success', __('messages.type_updated'));
     }
 
     /**
@@ -86,6 +85,6 @@ class TypeController extends Controller
     public function destroy(Type $type)
     {
         $type->delete();
-        return redirect()->back()->with('success', 'Type deleted successfully');
+        return redirect()->back()->with('success', __('messages.type_deleted'));
     }
 }

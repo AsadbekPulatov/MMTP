@@ -37,7 +37,7 @@ class FarmerController extends Controller
     public function store(Request $request)
     {
         Farmer::create($request->all());
-        return redirect()->route('farmers.index')->with('success', 'Farmer created successfully.');
+        return redirect()->route('farmers.index')->with('success', __('messages.farmer_created'));
     }
 
     /**
@@ -72,7 +72,7 @@ class FarmerController extends Controller
     public function update(Request $request, Farmer $farmer)
     {
         $farmer->update($request->all());
-        return redirect()->route('farmers.index')->with('success', 'Farmer updated successfully');
+        return redirect()->route('farmers.index')->with('success', __('messages.farmer_updated'));
     }
 
     /**
@@ -84,6 +84,6 @@ class FarmerController extends Controller
     public function destroy(Farmer $farmer)
     {
         $farmer->delete();
-        return redirect()->route('farmers.index')->with('success', 'Farmer deleted successfully');
+        return redirect()->route('farmers.index')->with('success', __('messages.farmer_deleted'));
     }
 }

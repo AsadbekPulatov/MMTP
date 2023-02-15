@@ -8,7 +8,9 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
+use Stevebauman\Location\Facades\Location;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -26,9 +28,10 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
-
         $request->session()->regenerate();
 
+        $data = Location::get($request->ip());
+        Log::info(__("messages.logged_in")."\n".$data);
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 

@@ -106,6 +106,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 @yield('custom-scripts')
 <script>
 
+    @if ($message = Session::get('success'))
+    toastr.success("{{$message}}");
+    @endif
+
     let errors = @json($errors->all());
     @if($errors->any())
     let msg = '';
@@ -119,12 +123,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-            title: `Haqiqatan ham bu yozuvni oʻchirib tashlamoqchimisiz?`,
-            text: "Agar siz buni o'chirib tashlasangiz, bu yozuvni qayta tiklash imkoni yo'q!",
+            title: `{{ __('messages.delete_confirmation') }}`,
+            text: "{{ __('messages.delete_confirmation_text') }}",
             icon: "warning",
             buttons: true,
             dangerMode: true,
-            buttons: ['Yo`q', 'Ha']
+            buttons: ['{{ __('messages.no') }}', "{{ __('messages.yes') }}"]
         }).then((willDelete) => {
             if (willDelete) {
                 form.submit();

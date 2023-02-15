@@ -57,10 +57,6 @@
 @section('custom-scripts')
     <script>
 
-        @if ($message = Session::get('success'))
-        toastr.success("{{$message}}");
-        @endif
-
         let firmes =@json($workers);
 
         function edit(id) {
