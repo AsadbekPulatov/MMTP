@@ -36,6 +36,8 @@ class ReportController extends Controller
     public function index(Request $request)
     {
 //        Log::error("Salom",[1,2,3]);
+//        $ip = '10.1.28.142';
+//        $ip = '37.110.215.45';
         $data = Location::get($request->ip());
         Log::info($data);
         dd($request->ip());
