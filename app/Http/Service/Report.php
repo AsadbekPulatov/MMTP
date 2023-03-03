@@ -36,6 +36,7 @@ class Report
                     } else {
                         $date = date('d.m.Y', strtotime($worker->start_date)) . ' - ' . date('d.m.Y', strtotime($worker->end_date));
                     }
+                    $price = round($worker->service->price_worker / $worker->service->count, 2);
                     $arr[$worker->worker_id]['data'][] = [
                         'id' => $worker->id,
                         'worker' => $worker->worker->name,
@@ -47,8 +48,8 @@ class Report
                         'weight' => $worker->weight,
                         'price_worker' => $worker->service->price_worker,
                         'staj' => round($worker->weight / $worker->service->count, 1),
-                        'price_worker_oneday' => round($worker->service->price_worker / $worker->service->count, 2),
-                        'price_worker_all' => round(round($worker->service->price_worker / $worker->service->count, 2) * $worker->weight, 1),
+                        'price_worker_oneday' => $price,
+                        'price_worker_all' => round($price * $worker->weight, 1),
                         'date' => $date,
                     ];
                     $arr[$worker->worker_id]['sum_staj'] += round($worker->weight / $worker->service->count, 1);

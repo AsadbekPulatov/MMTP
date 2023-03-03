@@ -31,7 +31,7 @@
     </style>
 </head>
 <body>
-<p>"Улугбек-Обод" МЧЖ трактор хайдовчиларига {{ $date }} хисобланган иш хаки</p>
+<p>{{ $office->name }} трактор хайдовчиларига {{ $date }} хисобланган иш хаки</p>
 <table border="1">
     <thead>
     <tr class="header">
@@ -69,7 +69,7 @@
                 <td>{{number_format($item['price_worker_all'],2,',',' ')}}</td>
             </tr>
         @endforeach
-        <tr style="font-weight: bold; background-color: #d5d0d0">
+        <tr style="font-weight: bold; background-color: #ccffff">
             <td>х</td>
             <td>х</td>
             <td>ЖАМИ</td>
@@ -85,7 +85,7 @@
             <td>{{number_format($firm['sum_price'],2,',',' ')}}</td>
         </tr>
     @endforeach
-    <tr style="font-weight: bold; background-color: #5bf85b">
+    <tr style="font-weight: bold; background-color: #ccffff">
         <td>х</td>
         <td>х</td>
         <td>ХАММАСИ</td>
