@@ -49,7 +49,7 @@ class Report
                         'price_worker' => $worker->service->price_worker,
                         'staj' => round($worker->weight / $worker->service->count, 1),
                         'price_worker_oneday' => $price,
-                        'price_worker_all' => round($price * $worker->weight, 1),
+                        'price_worker_all' => round($price * $worker->weight, 2),
                         'date' => $date,
                     ];
                     $arr[$worker->worker_id]['sum_staj'] += round($worker->weight / $worker->service->count, 1);
