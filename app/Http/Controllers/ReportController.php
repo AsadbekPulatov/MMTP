@@ -73,6 +73,7 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
+        $request['weight'] = str_replace(',','.', $request['weight']);
         Report::create($request->all());
         return redirect()->route('reports.index')->with('success', __("messages.report_created"));
     }
