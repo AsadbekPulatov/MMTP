@@ -15,26 +15,22 @@ class ExportDatabase extends Command
 
     public function handle()
     {
-        $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-        $host = $url["host"] ?? null;
-        $username = $url["user"] ?? null;
-        $password = $url["pass"] ?? null;
-        $database = substr($url["path"], 1);
+        $host = env('DB_HOST');
+        $port = env('DB_PORT');
+        $database = env('DB_DATABASE');
+        $username = env('DB_USERNAME');
+        $password = env('DB_PASSWORD');
 
-        $process = Process::fromShellCommandline(sprintf(
-            'mysqldump -u%s -p%s %s > %s',
-            $username,
-            $password,
-            $database,
-            storage_path('app/database.sql')
-        ));
+//        dd($host, $port, $database, $username, $password);
+        // Set the export file name and path
+        $filename = 'database.sql';
+        $filepath = storage_path("app" . $filename);
 
-        $process->run();
-        $this->info($process->getOutput());
-        if (!$process->isSuccessful()) {
-            throw new ProcessFailedException($process);
-        }
+        // Execute the mysqldump command to export the database
+        $command = "mysqldump -h{$host} -u{$username} -p{$password} {$database} > {$filepath}";
+        exec($command);
 
-        $this->info('Database exported successfully!');
+        // Display a message to indicate that the export has been completed
+        $this->info("The database has been exported and saved to {$filepath}");
     }
 }

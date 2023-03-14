@@ -14,9 +14,12 @@ class SendDatabase extends Command
     {
         $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
 
+        $file_url = storage_path('app\database.sql');
+        $file = new InputFile($file_url, 'database.sql');
+
         $telegram->sendDocument([
             'chat_id' => env('TELEGRAM_CHAT_ID'),
-            'document' => storage_path('app\database.sql'),
+            'document' => $file,
         ]);
 
         $this->info('Database sent to Telegram successfully!');

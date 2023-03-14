@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use Stevebauman\Location\Facades\Location;
+use Torann\GeoIP\Facades\GeoIP;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -30,7 +31,9 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
         $request->session()->regenerate();
 
-        $data = Location::get($request->ip());
+        $ip_address = $request->ip();
+        $data = GeoIP::getLocation($ip_address)->toArray();
+        $data = json_encode($data);
         Log::info(__("messages.logged_in")."\n".$data);
         return redirect()->intended(RouteServiceProvider::HOME);
     }

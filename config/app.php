@@ -187,7 +187,6 @@ return [
          */
 
         Maatwebsite\Excel\ExcelServiceProvider::class,
-        Stevebauman\Location\LocationServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -213,7 +212,6 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'Location' => Stevebauman\Location\Facades\Location::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
