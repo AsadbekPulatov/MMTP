@@ -30,11 +30,7 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
         $request->session()->regenerate();
-
-        $ip_address = $request->ip();
-        $data = GeoIP::getLocation($ip_address)->toArray();
-        $data = json_encode($data);
-        Log::info(__("messages.logged_in")."\n".$data);
+        Log::info(__("messages.logged_in")."\n");
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
