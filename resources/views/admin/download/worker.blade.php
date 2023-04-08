@@ -25,6 +25,45 @@
             text-align: center;
             padding: 8px;
         }
+        table tr td:nth-child(1), table tr th:nth-child(1){
+            width: 3%;
+        }
+        table tr td:nth-child(2), table tr th:nth-child(2){
+            width: 8%;
+        }
+        table tr td:nth-child(3), table tr th:nth-child(3){
+            width: 8%;
+        }
+        table tr td:nth-child(4), table tr th:nth-child(4){
+            width: 7%;
+        }
+        table tr td:nth-child(5), table tr th:nth-child(5){
+            width: 7%;
+        }
+        table tr td:nth-child(6), table tr th:nth-child(6){
+            width: 7%;
+        }
+        table tr td:nth-child(7), table tr th:nth-child(7){
+            width: 7%;
+        }
+        table tr td:nth-child(8), table tr th:nth-child(8){
+            width: 7%;
+        }
+        table tr td:nth-child(9), table tr th:nth-child(9){
+            width: 7%;
+        }
+        table tr td:nth-child(10), table tr th:nth-child(10){
+            width: 10%;
+        }
+        table tr td:nth-child(11), table tr th:nth-child(11){
+            width: 8%;
+        }
+        table tr td:nth-child(12), table tr th:nth-child(12){
+            width: 10%;
+        }
+        table tr td:nth-child(12), table tr th:nth-child(12){
+            width: 10%;
+        }
         .header > th{
             border: 3px double black;
         }
@@ -42,11 +81,11 @@
         <th>Иш тури</th>
         <th>Тр маркаси</th>
         <th>у\б</th>
-        <th class="rotate">иш меъёри</th>
-        <th style="width: 30px">хаки- катда бажа- рилган иш</th>
+        <th>иш меъёри</th>
+        <th>хаки- катда бажа- рилган иш</th>
         <th>асосий иш хаки</th>
-        <th class="rotate">сменада</th>
-        <th class="rotate">1 бирлик иш хаки</th>
+        <th>сменада</th>
+        <th>1 бирлик иш хаки</th>
         <th>жами иш хаки</th>
     </tr>
     </thead>

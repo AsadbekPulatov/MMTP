@@ -43,7 +43,7 @@ class DownloadController extends Controller
             'office' => $office
         ])->setPaper('a4', 'landscape');
         $pdf->setOption(['dpi' => 150, 'defaultFont' => 'sans-serif']);
-        return $pdf->download("Иш хаки ({$from_date} {$to_date}).pdf");
+        return $pdf->stream("Иш хаки ({$from_date} {$to_date}).pdf");
     }
 
     public function farmers(Request $request){
