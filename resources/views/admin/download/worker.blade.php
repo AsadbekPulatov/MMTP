@@ -45,7 +45,7 @@
             width: 7%;
         }
         table tr td:nth-child(7), table tr th:nth-child(7){ /*type*/
-            width: 7%;
+            width: 6%;
         }
         table tr td:nth-child(8), table tr th:nth-child(8){ /*count*/
             width: 7%;
@@ -54,16 +54,16 @@
             width: 7%;
         }
         table tr td:nth-child(10), table tr th:nth-child(10){ /*price_worker*/
-            width: 8%;
-        }
-        table tr td:nth-child(11), table tr th:nth-child(11){ /*staj*/
-            width: 7%;
-        }
-        table tr td:nth-child(12), table tr th:nth-child(12){ /*price_worker_oneday*/
             width: 9%;
         }
+        table tr td:nth-child(11), table tr th:nth-child(11){ /*staj*/
+            width: 6%;
+        }
+        table tr td:nth-child(12), table tr th:nth-child(12){ /*price_worker_oneday*/
+            width: 8%;
+        }
         table tr td:nth-child(13), table tr th:nth-child(13){ /*price_worker_all*/
-            width: 11%;
+            width: 13%;
         }
         .header > th{
             border: 3px double black;
