@@ -30,7 +30,7 @@ class DownloadController extends Controller
 
         $office = Office::all()->first();
 
-//        $excel = new ExportReport($workers, $sum, $from_date, $to_date, $worker_id, $date);
+//        $excel = new ExportReport($workers, $sum, $from_date, $to_date, $worker_id, $date, $office);
 //        return Excel::download($excel, 'users.xlsx');
 
         $pdf = Pdf::loadView('admin.download.worker',[

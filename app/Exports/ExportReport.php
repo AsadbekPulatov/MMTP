@@ -14,8 +14,9 @@ class ExportReport implements FromView
     private $to_date;
     private $worker_id;
     private $date;
+    private $office;
 
-    public function __construct($workers, $sum, $from_date, $to_date, $worker_id, $date)
+    public function __construct($workers, $sum, $from_date, $to_date, $worker_id, $date, $office)
     {
         $this->workers = $workers;
         $this->sum = $sum;
@@ -23,6 +24,7 @@ class ExportReport implements FromView
         $this->to_date = $to_date;
         $this->worker_id = $worker_id;
         $this->date = $date;
+        $this->office = $office;
     }
 
     public function view(): View
@@ -34,6 +36,7 @@ class ExportReport implements FromView
             'to_date' => $this->to_date,
             'worker_id' => $this->worker_id,
             'date' => $this->date,
+            'office' => $this->office
         ]);
     }
 }

@@ -25,44 +25,45 @@
             text-align: center;
             padding: 8px;
         }
-        table tr td:nth-child(1), table tr th:nth-child(1){
+        /*3500 px width*/
+        table tr td:nth-child(1), table tr th:nth-child(1){ /*#*/
             width: 3%;
         }
-        table tr td:nth-child(2), table tr th:nth-child(2){
+        table tr td:nth-child(2), table tr th:nth-child(2){ /*date*/
             width: 8%;
         }
-        table tr td:nth-child(3), table tr th:nth-child(3){
+        table tr td:nth-child(3), table tr th:nth-child(3){ /*worker*/
             width: 8%;
         }
-        table tr td:nth-child(4), table tr th:nth-child(4){
-            width: 7%;
-        }
-        table tr td:nth-child(5), table tr th:nth-child(5){
-            width: 7%;
-        }
-        table tr td:nth-child(6), table tr th:nth-child(6){
-            width: 7%;
-        }
-        table tr td:nth-child(7), table tr th:nth-child(7){
-            width: 7%;
-        }
-        table tr td:nth-child(8), table tr th:nth-child(8){
-            width: 7%;
-        }
-        table tr td:nth-child(9), table tr th:nth-child(9){
-            width: 7%;
-        }
-        table tr td:nth-child(10), table tr th:nth-child(10){
-            width: 10%;
-        }
-        table tr td:nth-child(11), table tr th:nth-child(11){
+        table tr td:nth-child(4), table tr th:nth-child(4){ /*farmer*/
             width: 8%;
         }
-        table tr td:nth-child(12), table tr th:nth-child(12){
+        table tr td:nth-child(5), table tr th:nth-child(5){ /*service*/
             width: 10%;
         }
-        table tr td:nth-child(12), table tr th:nth-child(12){
-            width: 10%;
+        table tr td:nth-child(6), table tr th:nth-child(6){ /*tractor*/
+            width: 7%;
+        }
+        table tr td:nth-child(7), table tr th:nth-child(7){ /*type*/
+            width: 7%;
+        }
+        table tr td:nth-child(8), table tr th:nth-child(8){ /*count*/
+            width: 7%;
+        }
+        table tr td:nth-child(9), table tr th:nth-child(9){ /*weight*/
+            width: 7%;
+        }
+        table tr td:nth-child(10), table tr th:nth-child(10){ /*price_worker*/
+            width: 8%;
+        }
+        table tr td:nth-child(11), table tr th:nth-child(11){ /*staj*/
+            width: 7%;
+        }
+        table tr td:nth-child(12), table tr th:nth-child(12){ /*price_worker_oneday*/
+            width: 9%;
+        }
+        table tr td:nth-child(13), table tr th:nth-child(13){ /*price_worker_all*/
+            width: 11%;
         }
         .header > th{
             border: 3px double black;
