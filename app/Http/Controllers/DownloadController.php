@@ -15,6 +15,7 @@ use Maatwebsite\Excel\Facades\Excel;
 class DownloadController extends Controller
 {
     public function workers(Request $request){
+        $type = $request->type;
         $report = new ReportService();
         $from_date = $request->from_date;
         $to_date = $request->to_date;
@@ -30,9 +31,10 @@ class DownloadController extends Controller
 
         $office = Office::all()->first();
 
-//        $excel = new ExportReport($workers, $sum, $from_date, $to_date, $worker_id, $date, $office);
-//        return Excel::download($excel, 'users.xlsx');
-
+        if ($type == "xls"){
+            $excel = new ExportReport($workers, $sum, $from_date, $to_date, $worker_id, $date, $office);
+            return Excel::download($excel, "Иш хаки ({$from_date} {$to_date}).xlsx");
+        }
         $pdf = Pdf::loadView('admin.download.worker',[
             'workers' => $workers,
             'sum' => $sum,

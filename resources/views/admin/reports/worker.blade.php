@@ -67,8 +67,18 @@
                                             'from_date' => $from_date,
                                             'to_date' => $to_date,
                                             'worker_id' => $worker_id,
+                                            'type' => 'pdf'
                                         ]
-                                        ) }}" class="btn btn-info ml-3"><i class="fa fa-download"></i> {{ __("messages.download") }}</a>
+                                        ) }}" class="btn btn-info ml-3"><i class="fa fa-download"></i> {{ __("messages.download") }} <i class="fa fa-file-pdf"></i>
+                            </a>
+                            <a href="{{ route('download.workers',
+                                        [
+                                            'from_date' => $from_date,
+                                            'to_date' => $to_date,
+                                            'worker_id' => $worker_id,
+                                            'type' => 'xls'
+                                        ]
+                                        ) }}" class="btn btn-info ml-3"><i class="fa fa-download"></i> {{ __("messages.download") }} <i class="fa fa-file-excel"></i></a>
                         </div>
                     </div>
                     <div class="table-responsive">

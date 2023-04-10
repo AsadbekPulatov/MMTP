@@ -33,10 +33,10 @@
             width: 8%;
         }
         table tr td:nth-child(3), table tr th:nth-child(3){ /*worker*/
-            width: 8%;
+            width: 12%;
         }
         table tr td:nth-child(4), table tr th:nth-child(4){ /*farmer*/
-            width: 8%;
+            width: 11%;
         }
         table tr td:nth-child(5), table tr th:nth-child(5){ /*service*/
             width: 10%;
@@ -45,13 +45,13 @@
             width: 7%;
         }
         table tr td:nth-child(7), table tr th:nth-child(7){ /*type*/
-            width: 6%;
+            width: 4%;
         }
         table tr td:nth-child(8), table tr th:nth-child(8){ /*count*/
-            width: 7%;
+            width: 4%;
         }
         table tr td:nth-child(9), table tr th:nth-child(9){ /*weight*/
-            width: 7%;
+            width: 5%;
         }
         table tr td:nth-child(10), table tr th:nth-child(10){ /*price_worker*/
             width: 9%;
